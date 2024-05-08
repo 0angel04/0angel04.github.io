@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con Botones</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #noButton {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="triste.jpeg">
+        <h1>Me perdonas?</h1>
+        <button id="siButton">SI</button>
+        <button id="noButton">NO</button>
+    </div>
+
+    <script>
+        // Obtener referencias a los elementos
+        const siButton = document.getElementById('siButton');
+        const noButton = document.getElementById('noButton');
+        const container = document.querySelector('.container');
+
+        // Función para cambiar la posición del botón NO
+        function cambiarPosicion() {
+            // Generar posiciones aleatorias dentro de los límites del contenedor
+            const nuevaPosicionX = Math.max(0, Math.min(container.offsetWidth - noButton.offsetWidth, Math.floor(Math.random() * (container.offsetWidth - noButton.offsetWidth))));
+            const nuevaPosicionY = Math.max(0, Math.min(container.offsetHeight - noButton.offsetHeight, Math.floor(Math.random() * (container.offsetHeight - noButton.offsetHeight))));
+            // Aplicar nuevas posiciones al botón NO
+            noButton.style.left = `${nuevaPosicionX}px`;
+            noButton.style.top = `${nuevaPosicionY}px`;
+        }
+
+        // Función para abrir otro archivo HTML al hacer clic en el botón SI
+        function abrirOtroArchivo() {
+            window.location.href = 'perdon.html'; // Reemplaza 'otroarchivo.html' con la ruta de tu archivo HTML
+        }
+
+        // Añadir evento click al botón SI
+        siButton.addEventListener('click', abrirOtroArchivo);
+
+        // Añadir evento click al botón NO
+        noButton.addEventListener('click', cambiarPosicion);
+    </script>
+</body>
+</html>
