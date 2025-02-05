@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  color: white;
+  font-family: 'Arial', sans-serif;
+}
+
+#questionContainer {
+  text-align: center;
+  visibility: hidden;
+}
+
+#heartShape {
+  font-size: 5em;
+  color: red;
+}
+
+button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: darkred;
+}
+
+button:focus {
+  outline: none;
+}
