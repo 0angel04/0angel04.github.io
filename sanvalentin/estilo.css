@@ -12,6 +12,7 @@ body {
   height: 100vh;
   overflow: hidden;
   font-family: Arial, sans-serif;
+  position: relative;
 }
 
 #heartsContainer {
@@ -22,56 +23,43 @@ body {
 
 .heart {
   position: absolute;
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
   background-color: red;
   transform: rotate(-45deg);
-  position: absolute;
-  opacity: 1;
-  animation: moveToCenter 3s ease-in-out forwards;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
-/* Parte superior izquierda del corazón */
+/* Parte superior del corazón */
 .heart::before,
 .heart::after {
   content: "";
   position: absolute;
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
   background-color: red;
   border-radius: 50%;
 }
 
 .heart::before {
-  top: -7.5px;
+  top: -5px;
   left: 0;
 }
 
 .heart::after {
   top: 0;
-  left: 7.5px;
+  left: 5px;
 }
 
-@keyframes moveToCenter {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) scale(5);
-  }
-}
-
-/* Pregunta y botones */
+/* Contenedor de la pregunta */
 #questionContainer {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   text-align: center;
   color: white;
   display: none;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 button {
