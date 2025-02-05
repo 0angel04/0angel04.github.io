@@ -13,6 +13,7 @@ body {
   overflow: hidden;
   font-family: Arial, sans-serif;
   position: relative;
+  overflow: hidden;
 }
 
 #heartsContainer {
@@ -23,8 +24,8 @@ body {
 
 .heart {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   background-color: red;
   transform: rotate(-45deg);
   opacity: 0;
@@ -36,20 +37,20 @@ body {
 .heart::after {
   content: "";
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   background-color: red;
   border-radius: 50%;
 }
 
 .heart::before {
-  top: -5px;
+  top: -4px;
   left: 0;
 }
 
 .heart::after {
   top: 0;
-  left: 5px;
+  left: 4px;
 }
 
 /* Pregunta y botones */
@@ -60,6 +61,13 @@ body {
   display: none;
   font-size: 24px;
   font-weight: bold;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  width: 80%; /* Ajustamos el tamaño para pantallas pequeñas */
+  max-width: 400px; /* Máximo ancho del contenedor */
+  padding: 20px;
+  z-index: 1; /* Asegura que el texto esté sobre los corazones */
 }
 
 button {
@@ -78,20 +86,4 @@ button:hover {
 
 #noBtn {
   position: absolute;
-
-#questionContainer {
-  position: absolute;
-  text-align: center;
-  color: white;
-  display: none;
-  font-size: 24px;
-  font-weight: bold;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
-  width: 80%; /* Asegúrate de que el contenedor no sea más grande que la pantalla */
-  max-width: 400px; /* Máximo ancho del contenedor */
-  padding: 20px;
-}
-
 }
