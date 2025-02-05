@@ -10,29 +10,28 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  overflow: hidden;
   font-family: Arial, sans-serif;
   position: relative;
+  overflow: hidden;
 }
 
 #heartsContainer {
   position: absolute;
   width: 100%;
   height: 100%;
-  pointer-events: none; /* Evita que los corazones interfieran con otros elementos */
+  pointer-events: none; /* Los corazones no interfieren con otros elementos */
 }
 
 .heart {
   position: absolute;
-  width: 6%;  /* Usamos un 6% del ancho de la pantalla para los corazones */
-  height: 6%;
+  width: 3vw;  /* Tamaño dinámico para los corazones */
+  height: 3vw;
   background-color: red;
   transform: rotate(-45deg);
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
 
-/* Parte superior del corazón */
 .heart::before,
 .heart::after {
   content: "";
@@ -58,16 +57,16 @@ body {
   position: absolute;
   text-align: center;
   color: white;
-  font-size: 6vw; /* Texto escalado con vw */
+  font-size: 6vw; /* Tamaño dinámico con vw */
   font-weight: bold;
   display: none;
-  width: 80%;  /* Ancho dinámico, ajustado al 80% de la pantalla */
-  max-width: 400px; /* Limitar el ancho máximo del contenedor */
+  width: 80%;  /* Ancho ajustable */
+  max-width: 350px; /* Límite máximo para pantallas grandes */
   line-height: 1.2;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  padding: 10px;
+  padding: 20px;
 }
 
 /* Botones */
@@ -75,8 +74,8 @@ button {
   background-color: red;
   color: white;
   border: none;
-  padding: 3vw 5vw; /* Botones con tamaños dinámicos */
-  margin-top: 4vw;
+  padding: 3vw 5vw; /* Botones responsivos */
+  margin-top: 5vw;
   cursor: pointer;
   font-size: 4vw;
   border-radius: 1rem;
@@ -88,29 +87,23 @@ button:hover {
 
 #noBtn {
   position: absolute;
-  transition: all 0.3s ease; /* Efecto suave de movimiento */
+  transition: all 0.3s ease; /* Efecto de desplazamiento suave */
 }
 
-/* Media Query para pantallas más grandes */
+/* Media Query para pantallas grandes */
 @media screen and (min-width: 1200px) {
   .heart {
-    width: 4%;  /* Reducimos el tamaño de los corazones en pantallas grandes */
-    height: 4%;
-  }
-
-  .heart::before,
-  .heart::after {
-    width: 100%;
-    height: 100%;
+    width: 2vw;  /* Reducimos los corazones en pantallas grandes */
+    height: 2vw;
   }
 
   #questionContainer {
-    font-size: 3vw; /* Ajuste del tamaño del texto en pantallas grandes */
-    max-width: 300px; /* Limitar el tamaño máximo en píxeles */
+    font-size: 3vw;  /* Reducimos el tamaño de la pregunta en pantallas grandes */
+    max-width: 300px;
   }
 
   button {
-    padding: 2rem 3rem;
+    padding: 1.5rem 3rem; /* Botones ajustados en pantallas grandes */
     font-size: 2rem;
   }
 }
