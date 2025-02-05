@@ -9,11 +9,11 @@ document.addEventListener("DOMContentLoaded", function() {
     let centerX = window.innerWidth / 2;
     let centerY = window.innerHeight / 2;
     
-    // Escalar el corazón según el tamaño de la pantalla
-    let scaleFactor = Math.min(window.innerWidth, window.innerHeight) / 40; 
+    // Factor de escala ajustado dinámicamente
+    let scaleFactor = Math.min(window.innerWidth, window.innerHeight) / 25;
 
-    let numHearts = 100; // Número de corazones en el contorno
-    let tIncrement = (2 * Math.PI) / numHearts; // Espaciado uniforme
+    let numHearts = 150; // Aumentamos para que se vea mejor en móviles y tablets
+    let tIncrement = (2 * Math.PI) / numHearts; 
 
     for (let i = 0; i < numHearts; i++) {
       let t = i * tIncrement;
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
       document.querySelectorAll(".heart").forEach((heart, index) => {
         setTimeout(() => {
           heart.style.opacity = "1";
-        }, index * 30);
+        }, index * 20);
       });
     }, 500);
 
