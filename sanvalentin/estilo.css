@@ -21,10 +21,11 @@ body {
   height: 100%;
 }
 
+/* Corazones pequeños */
 .heart {
   position: absolute;
-  width: 8px;
-  height: 8px;
+  width: 1.5vw; /* Tamaño relativo al ancho de la pantalla */
+  height: 1.5vw;
   background-color: red;
   transform: rotate(-45deg);
   opacity: 0;
@@ -36,97 +37,79 @@ body {
 .heart::after {
   content: "";
   position: absolute;
-  width: 8px;
-  height: 8px;
+  width: 1.5vw;
+  height: 1.5vw;
   background-color: red;
   border-radius: 50%;
 }
 
 .heart::before {
-  top: -4px;
+  top: -0.75vw;
   left: 0;
 }
 
 .heart::after {
   top: 0;
-  left: 4px;
+  left: 0.75vw;
 }
 
-/* Pregunta y botones */
+/* Contenedor de la pregunta */
 #questionContainer {
   position: absolute;
   text-align: center;
   color: white;
   display: none;
-  font-size: 24px;
+  font-size: 4vw; /* Ajustable al tamaño de la pantalla */
   font-weight: bold;
   transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
-  width: 80%; /* Ajustamos el tamaño para pantallas pequeñas */
-  max-width: 350px; /* Máximo ancho del contenedor */
+  width: 80%;
+  max-width: 350px;
   padding: 20px;
-  z-index: 1; /* Asegura que el texto esté sobre los corazones */
+  z-index: 1;
 }
 
-/* Ajustamos el tamaño de los botones */
+/* Botones */
 button {
   background-color: red;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 1.5vw 3vw; /* Tamaño relativo */
   margin: 10px;
   cursor: pointer;
-  font-size: 16px;
-  width: 80%;
-  max-width: 200px; /* Limita el tamaño del botón */
+  font-size: 3vw; /* Escalado */
+  border-radius: 10px;
 }
 
 button:hover {
   background-color: darkred;
 }
 
-/* Aseguramos que el botón 'No' se mueva bien */
+/* Asegura que el botón "No" pueda moverse sin problemas */
 #noBtn {
   position: absolute;
 }
 
-/* Responsividad */
-@media (max-width: 768px) {
-  /* En pantallas más pequeñas, reducimos el tamaño del corazón */
-  .heart {
-    width: 6px;
-    height: 6px;
+/* Mejoras para pantallas pequeñas */
+@media (max-width: 600px) {
+  #questionContainer {
+    font-size: 5vw;
   }
-
-  /* Reducimos la fuente de la pregunta en pantallas más pequeñas */
-  #questionText {
-    font-size: 20px;
-  }
-
-  /* Hacemos que los botones sean más grandes en móviles */
+  
   button {
-    font-size: 14px;
-    padding: 12px 24px;
+    font-size: 4vw;
+    padding: 2vw 4vw;
   }
 }
 
-@media (max-width: 480px) {
-  /* En pantallas muy pequeñas, reducimos aún más el tamaño del corazón */
-  .heart {
-    width: 5px;
-    height: 5px;
+@media (max-width: 400px) {
+  #questionContainer {
+    font-size: 6vw;
   }
 
-  /* Ajustamos más el tamaño del texto de la pregunta */
-  #questionText {
-    font-size: 18px;
-  }
-
-  /* Hacemos que los botones se ajusten mejor en pantallas pequeñas */
   button {
-    font-size: 12px;
-    padding: 10px 20px;
-    width: 90%;
+    font-size: 5vw;
+    padding: 2.5vw 5vw;
   }
 }
