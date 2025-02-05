@@ -79,16 +79,19 @@ button:hover {
 #noBtn {
   position: absolute;
 
-  #questionContainer {
+#questionContainer {
   position: absolute;
   text-align: center;
   color: white;
   display: none;
   font-size: 24px;
   font-weight: bold;
-  transform: translate(-50%, -50%); /* Centra el texto */
+  transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
+  width: 80%; /* Asegúrate de que el contenedor no sea más grande que la pantalla */
+  max-width: 400px; /* Máximo ancho del contenedor */
+  padding: 20px;
 }
 
 }
