@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", function() {
     let centerY = window.innerHeight / 2;
     
     // Factor de escala ajustado dinámicamente
-    let scaleFactor = Math.min(window.innerWidth, window.innerHeight) / 25;
+    let scaleFactor = Math.min(window.innerWidth, window.innerHeight) / 30;
 
-    let numHearts = 150; // Aumentamos para que se vea mejor en móviles y tablets
+    let numHearts = 120; // Ajustamos para móviles
     let tIncrement = (2 * Math.PI) / numHearts; 
 
     for (let i = 0; i < numHearts; i++) {
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
     setTimeout(() => {
       questionContainer.style.display = "block";
       questionContainer.style.left = `${centerX}px`;
-      questionContainer.style.top = `${centerY}px`;
+      questionContainer.style.top = `${centerY - scaleFactor * 1.5}px`; // Centrado más preciso
     }, 2500);
   }
 
