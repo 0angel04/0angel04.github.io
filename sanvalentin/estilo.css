@@ -25,7 +25,7 @@ body {
 
 .heart {
   position: absolute;
-  width: 10vw;  /* Ajustable tamaño */
+  width: 10vw; /* Tamaño proporcional al ancho de la pantalla */
   height: 10vw;
   background-color: red;
   transform: rotate(-45deg);
