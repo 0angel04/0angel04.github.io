@@ -5,37 +5,42 @@ document.addEventListener("DOMContentLoaded", function() {
 
   let centerX = window.innerWidth / 2;
   let centerY = window.innerHeight / 2;
-  let scaleFactor = 15; // Escalar el corazón a la pantalla
+  let scaleFactor = 20; // Escalar el corazón
 
-  // Dibujar corazones en el contorno del corazón usando ecuaciones paramétricas
-  for (let t = 0; t < Math.PI * 2; t += 0.1) {
+  let numHearts = 100; // Número de corazones en el contorno
+  let tIncrement = (2 * Math.PI) / numHearts; // Espaciado uniforme
+
+  for (let i = 0; i < numHearts; i++) {
+    let t = i * tIncrement;
     let x = 16 * Math.pow(Math.sin(t), 3);
     let y = 13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t);
 
     let heart = document.createElement("div");
     heart.classList.add("heart");
 
+    // Posicionar los corazones en el contorno
     heart.style.left = `${centerX + x * scaleFactor}px`;
     heart.style.top = `${centerY - y * scaleFactor}px`;
 
+    // Agregar corazones al contenedor
     heartsContainer.appendChild(heart);
   }
 
-  // Hacer que los corazones aparezcan poco a poco
+  // Animar la aparición de los corazones
   setTimeout(() => {
     document.querySelectorAll(".heart").forEach((heart, index) => {
       setTimeout(() => {
         heart.style.opacity = "1";
-      }, index * 50);
+      }, index * 30);
     });
   }, 500);
 
-  // Mostrar la pregunta después de la animación de corazones
+  // Mostrar la pregunta en el centro del corazón hueco
   setTimeout(() => {
     questionContainer.style.display = "block";
     questionContainer.style.left = `${centerX}px`;
     questionContainer.style.top = `${centerY}px`;
-  }, 3000);
+  }, 2500);
 
   // Botón "Sí" redirige
   document.getElementById("yesBtn").addEventListener("click", () => {
