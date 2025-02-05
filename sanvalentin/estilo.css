@@ -24,8 +24,8 @@ body {
 
 .heart {
   position: absolute;
-  width: 2vw; /* Tamaño proporcional */
-  height: 2vw;
+  width: 4rem; /* Usamos rem para que el tamaño sea más controlado */
+  height: 4rem;
   background-color: red;
   transform: rotate(-45deg);
   opacity: 0;
@@ -37,20 +37,20 @@ body {
 .heart::after {
   content: "";
   position: absolute;
-  width: 2vw;
-  height: 2vw;
+  width: 4rem;
+  height: 4rem;
   background-color: red;
   border-radius: 50%;
 }
 
 .heart::before {
-  top: -1vw;
+  top: -2rem;
   left: 0;
 }
 
 .heart::after {
   top: 0;
-  left: 1vw;
+  left: 2rem;
 }
 
 /* Contenedor de la pregunta */
@@ -58,16 +58,16 @@ body {
   position: absolute;
   text-align: center;
   color: white;
-  font-size: 5vw; /* Escalado para pantallas pequeñas */
+  font-size: 5rem; /* Usamos rem para el texto */
   font-weight: bold;
   display: none;
   width: 100%;
-  max-width: 400px; /* Máximo tamaño en píxeles */
+  max-width: 25rem; /* Máximo tamaño del texto en píxeles */
   line-height: 1.2;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  padding: 0 20px; /* Añadimos algo de espacio al texto */
+  padding: 0 20px;
 }
 
 /* Botones */
@@ -75,11 +75,11 @@ button {
   background-color: red;
   color: white;
   border: none;
-  padding: 3vw 6vw; /* Tamaño dinámico en relación a la pantalla */
-  margin-top: 4vw;
+  padding: 2rem 4rem; /* Usamos rem para los botones */
+  margin-top: 3rem;
   cursor: pointer;
-  font-size: 4vw;
-  border-radius: 1vw;
+  font-size: 3rem; /* Font-size dinámico en rem */
+  border-radius: 1rem;
 }
 
 button:hover {
@@ -90,3 +90,28 @@ button:hover {
   position: absolute;
   transition: all 0.3s ease; /* Efecto suave de movimiento */
 }
+
+/* Media Query para pantallas grandes */
+@media screen and (min-width: 1200px) {
+  .heart {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .heart::before,
+  .heart::after {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  #questionContainer {
+    font-size: 3rem;
+    max-width: 20rem; /* Limitar el tamaño máximo */
+  }
+
+  button {
+    padding: 2rem 3rem;
+    font-size: 2rem;
+  }
+}
+
