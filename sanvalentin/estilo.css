@@ -24,8 +24,8 @@ body {
 
 .heart {
   position: absolute;
-  width: 5%;  /* Ajustamos los corazones a un 5% de la pantalla */
-  height: 5%;
+  width: 6%;  /* Usamos un 6% del ancho de la pantalla para los corazones */
+  height: 6%;
   background-color: red;
   transform: rotate(-45deg);
   opacity: 0;
@@ -58,11 +58,11 @@ body {
   position: absolute;
   text-align: center;
   color: white;
-  font-size: 6vw; /* Escalado automático en función del ancho */
+  font-size: 6vw; /* Texto escalado con vw */
   font-weight: bold;
   display: none;
-  width: 80%;
-  max-width: 500px; /* Limita el tamaño máximo del contenedor */
+  width: 80%;  /* Ancho dinámico, ajustado al 80% de la pantalla */
+  max-width: 400px; /* Limitar el ancho máximo del contenedor */
   line-height: 1.2;
   left: 50%;
   top: 50%;
@@ -75,7 +75,7 @@ button {
   background-color: red;
   color: white;
   border: none;
-  padding: 3vw 5vw; /* Ajusta el tamaño de los botones */
+  padding: 3vw 5vw; /* Botones con tamaños dinámicos */
   margin-top: 4vw;
   cursor: pointer;
   font-size: 4vw;
@@ -94,8 +94,8 @@ button:hover {
 /* Media Query para pantallas más grandes */
 @media screen and (min-width: 1200px) {
   .heart {
-    width: 3%;  /* Reducimos el tamaño de los corazones en pantallas grandes */
-    height: 3%;
+    width: 4%;  /* Reducimos el tamaño de los corazones en pantallas grandes */
+    height: 4%;
   }
 
   .heart::before,
@@ -105,12 +105,12 @@ button:hover {
   }
 
   #questionContainer {
-    font-size: 4vw; /* Ajuste más pequeño del texto en pantallas grandes */
-    max-width: 400px; /* Limitar el tamaño máximo */
+    font-size: 3vw; /* Ajuste del tamaño del texto en pantallas grandes */
+    max-width: 300px; /* Limitar el tamaño máximo en píxeles */
   }
 
   button {
-    padding: 2rem 4rem;
-    font-size: 3rem;
+    padding: 2rem 3rem;
+    font-size: 2rem;
   }
 }
