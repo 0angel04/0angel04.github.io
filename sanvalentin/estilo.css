@@ -52,7 +52,7 @@ body {
   left: 5px;
 }
 
-/* Contenedor de la pregunta */
+/* Pregunta y botones */
 #questionContainer {
   position: absolute;
   text-align: center;
