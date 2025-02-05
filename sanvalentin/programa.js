@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Botón "Sí" redirige
   document.getElementById("yesBtn").addEventListener("click", () => {
-    window.location.href = "otroHTML.html";
+    window.location.href = "si.html";
   });
 
   // Botón "No" se mueve aleatoriamente
