@@ -1,47 +1,58 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function() {
+  let heartsContainer = document.getElementById("heartsContainer");
+  let questionContainer = document.getElementById("questionContainer");
+  let noBtn = document.getElementById("noBtn");
+
+  let centerX = window.innerWidth / 2;
+  let centerY = window.innerHeight / 2;
+  let scaleFactor = 20; // Escalar el corazón
+
+  let numHearts = 100; // Número de corazones en el contorno
+  let tIncrement = (2 * Math.PI) / numHearts; // Espaciado uniforme
+
+  for (let i = 0; i < numHearts; i++) {
+    let t = i * tIncrement;
+    let x = 16 * Math.pow(Math.sin(t), 3);
+    let y = 13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t);
+
+    let heart = document.createElement("div");
+    heart.classList.add("heart");
+
+    // Posicionar los corazones en el contorno
+    heart.style.left = `${centerX + x * scaleFactor}px`;
+    heart.style.top = `${centerY - y * scaleFactor}px`;
+
+    // Agregar corazones al contenedor
+    heartsContainer.appendChild(heart);
+  }
+
+  // Animar la aparición de los corazones
   setTimeout(() => {
-    // Generar corazones formando un corazón
-    createHearts();
-    // Mostrar la pregunta después de un pequeño retraso
-    setTimeout(() => {
-      document.getElementById('questionContainer').style.display = 'block';
-    }, 1000);
+    document.querySelectorAll(".heart").forEach((heart, index) => {
+      setTimeout(() => {
+        heart.style.opacity = "1";
+      }, index * 30);
+    });
   }, 500);
-});
 
-function createHearts() {
-  const heartContainer = document.getElementById('heartsContainer');
-  const heartCount = 300;  // Número de corazones (ajustable)
+  // Mostrar la pregunta en el centro del corazón hueco
+  setTimeout(() => {
+    questionContainer.style.display = "block";
+    questionContainer.style.left = `${centerX}px`;
+    questionContainer.style.top = `${centerY}px`;
+  }, 2500);
 
-  // Coordenadas para formar el contorno de un corazón
-  const heartShape = [
-    { x: 50, y: 50 }, { x: 48, y: 52 }, { x: 52, y: 52 }, // Forma de corazón
-    { x: 51, y: 54 }, { x: 49, y: 55 },
-    { x: 47, y: 57 }, { x: 53, y: 57 }, { x: 50, y: 58 }
-  ];
-
-  heartShape.forEach((coord, index) => {
-    const heart = document.createElement('div');
-    heart.classList.add('heart');
-    heart.style.left = `${coord.x}vw`;
-    heart.style.top = `${coord.y}vh`;
-
-    heartContainer.appendChild(heart);
-
-    // Animar el corazón para que aparezca gradualmente
-    setTimeout(() => {
-      heart.style.opacity = 1;
-    }, index * 150);  // Diferente tiempo de aparición
+  // Botón "Sí" redirige
+  document.getElementById("yesBtn").addEventListener("click", () => {
+    window.location.href = "otroHTML.html";
   });
-}
 
-function yesClick() {
-  window.location.href = 'aceptar.html';  // Redirigir al sí
-}
+  // Botón "No" se mueve aleatoriamente
+  noBtn.addEventListener("mouseover", () => {
+    let x = Math.random() * (window.innerWidth - noBtn.clientWidth);
+    let y = Math.random() * (window.innerHeight - noBtn.clientHeight);
 
-function noClick() {
-  // Mover el botón de "No" a una posición aleatoria
-  const noButton = document.getElementById('noBtn');
-  noButton.style.left = `${Math.random() * 100}vw`;
-  noButton.style.top = `${Math.random() * 100}vh`;
-}
+    noBtn.style.left = `${x}px`;
+    noBtn.style.top = `${y}px`;
+  });
+});
