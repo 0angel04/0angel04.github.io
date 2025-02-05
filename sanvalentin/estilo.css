@@ -23,6 +23,7 @@ body {
 #heartShape {
   font-size: 5em;
   color: red;
+  visibility: hidden;
 }
 
 button {
@@ -40,4 +41,36 @@ button:hover {
 
 button:focus {
   outline: none;
+}
+
+/* Animación para mover los corazones pequeños */
+@keyframes moveHeart {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+/* Corazones pequeños */
+.heart {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  animation: moveHeart 2s ease-in-out forwards;
+  opacity: 0;
+}
+
+/* Animación para los corazones grandes que se forman */
+@keyframes formHeart {
+  0% { opacity: 0; transform: scale(0); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+#heartShape {
+  animation: formHeart 2s ease-in-out forwards;
+}
+
+/* Para los botones */
+#yesBtn, #noBtn {
+  margin-top: 20px;
 }
