@@ -23,8 +23,8 @@ body {
 
 .heart {
   position: absolute;
-  width: 1vw;
-  height: 1vw;
+  width: 1.5vw;
+  height: 1.5vw;
   background-color: red;
   transform: rotate(-45deg);
   opacity: 0;
@@ -36,40 +36,44 @@ body {
 .heart::after {
   content: "";
   position: absolute;
-  width: 1vw;
-  height: 1vw;
+  width: 1.5vw;
+  height: 1.5vw;
   background-color: red;
   border-radius: 50%;
 }
 
 .heart::before {
-  top: -0.5vw;
+  top: -0.75vw;
   left: 0;
 }
 
 .heart::after {
   top: 0;
-  left: 0.5vw;
+  left: 0.75vw;
 }
 
-/* Pregunta y botones */
+/* Contenedor de la pregunta */
 #questionContainer {
   position: absolute;
   text-align: center;
   color: white;
-  display: none;
-  font-size: 5vw;
+  font-size: 4vw;
   font-weight: bold;
+  display: none;
+  width: 100%;
+  max-width: 40vw;
+  line-height: 1.2;
 }
 
+/* Botones */
 button {
   background-color: red;
   color: white;
   border: none;
   padding: 2vw 4vw;
-  margin: 2vw;
+  margin-top: 2vw;
   cursor: pointer;
-  font-size: 4vw;
+  font-size: 3vw;
   border-radius: 1vw;
 }
 
