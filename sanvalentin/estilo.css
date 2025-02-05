@@ -17,13 +17,14 @@ body {
 
 #heartsContainer {
   position: absolute;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Evita que los corazones interfieran con otros elementos */
 }
 
 .heart {
   position: absolute;
-  width: 2vw; /* Ajustar el tamaño de los corazones */
+  width: 2vw; /* Tamaño proporcional */
   height: 2vw;
   background-color: red;
   transform: rotate(-45deg);
@@ -57,15 +58,16 @@ body {
   position: absolute;
   text-align: center;
   color: white;
-  font-size: 5vw; /* Aumentar el tamaño del texto en pantallas pequeñas */
+  font-size: 5vw; /* Escalado para pantallas pequeñas */
   font-weight: bold;
   display: none;
   width: 100%;
-  max-width: 60vw; /* Ajustar el tamaño máximo */
+  max-width: 400px; /* Máximo tamaño en píxeles */
   line-height: 1.2;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  padding: 0 20px; /* Añadimos algo de espacio al texto */
 }
 
 /* Botones */
@@ -73,10 +75,10 @@ button {
   background-color: red;
   color: white;
   border: none;
-  padding: 4vw 8vw;
+  padding: 3vw 6vw; /* Tamaño dinámico en relación a la pantalla */
   margin-top: 4vw;
   cursor: pointer;
-  font-size: 5vw;
+  font-size: 4vw;
   border-radius: 1vw;
 }
 
@@ -86,4 +88,5 @@ button:hover {
 
 #noBtn {
   position: absolute;
+  transition: all 0.3s ease; /* Efecto suave de movimiento */
 }
