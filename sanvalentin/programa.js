@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
   let questionContainer = document.getElementById("questionContainer");
   let noBtn = document.getElementById("noBtn");
 
+  // Función para crear el contorno del corazón con los pequeños corazones
   function createHeartShape() {
     heartsContainer.innerHTML = ""; // Limpiar corazones si se redimensiona la pantalla
 
@@ -12,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Factor de escala ajustado dinámicamente
     let scaleFactor = Math.min(window.innerWidth, window.innerHeight) / 30;
 
-    let numHearts = 120; // Ajustamos para móviles
+    let numHearts = 120; // Número de corazones pequeños
     let tIncrement = (2 * Math.PI) / numHearts; 
 
     for (let i = 0; i < numHearts; i++) {
@@ -27,39 +28,36 @@ document.addEventListener("DOMContentLoaded", function() {
       heart.style.left = `${centerX + x * scaleFactor}px`;
       heart.style.top = `${centerY - y * scaleFactor}px`;
 
-      // Agregar corazones al contenedor
       heartsContainer.appendChild(heart);
     }
 
-    // Animar la aparición de los corazones
+    // Animar la aparición de los corazones pequeños
     setTimeout(() => {
       document.querySelectorAll(".heart").forEach((heart, index) => {
         setTimeout(() => {
           heart.style.opacity = "1";
-        }, index * 20);
+        }, index * 20); // Aparición gradual
       });
     }, 500);
 
     // Mostrar la pregunta en el centro del corazón hueco
     setTimeout(() => {
-      questionContainer.style.display = "block";
-      questionContainer.style.left = `${centerX}px`;
-      questionContainer.style.top = `${centerY - scaleFactor * 1.5}px`; // Centrado más preciso
+      questionContainer.style.display = "block"; // Mostrar la pregunta después de que aparezcan los corazones
     }, 2500);
   }
 
   // Crear la forma del corazón al cargar la página
   createHeartShape();
 
-  // Ajustar el tamaño del corazón si la pantalla cambia de tamaño
+  // Ajustar la forma del corazón si la pantalla cambia de tamaño
   window.addEventListener("resize", createHeartShape);
 
-  // Botón "Sí" redirige
+  // Evento para el botón "Sí" que redirige a otro HTML
   document.getElementById("yesBtn").addEventListener("click", () => {
-    window.location.href = "otroHTML.html";
+    window.location.href = "otroHTML.html"; // Redirige a otro archivo HTML
   });
 
-  // Botón "No" se mueve aleatoriamente
+  // Evento para el botón "No" que lo mueve aleatoriamente por la pantalla
   noBtn.addEventListener("mouseover", () => {
     let x = Math.random() * (window.innerWidth - noBtn.clientWidth);
     let y = Math.random() * (window.innerHeight - noBtn.clientHeight);
