@@ -86,3 +86,42 @@ button:hover {
 #noBtn {
   position: absolute;
 }
+
+#questionContainer {
+    position: absolute;
+    text-align: center;
+    color: white;
+    display: none;
+    font-size: 24px;
+    font-weight: bold;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espaciado entre botones */
+}
+
+button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: darkred;
+}
+
+#noBtn {
+    position: relative; /* Permite moverlo cuando se activa el efecto */
+}
+
